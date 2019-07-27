@@ -3,14 +3,20 @@ import Canvas from "./Canvas"
 
 const createParticle = ({
   speed = 0.005,
-  repulsion = 0.00000001,
-  attraction = 0.0001,
+  repulsion = 0.000005,
+  attraction = 0.002,
   connectSize = 0.25
 }) => ({
-  radius: 0.001,
+  radius: 0.002,
   position: [Math.random(), Math.random()],
   direction: [Math.random() * speed, Math.random() * speed],
   update({ particles = [], index, clientPos }) {
+    // update position
+    this.position = [
+      this.position[0] + this.direction[0],
+      this.position[1] + this.direction[1]
+    ]
+
     const lines = []
     particles.forEach((p, pIndex) => {
       // skip self
@@ -69,8 +75,8 @@ const createParticle = ({
 
     // calculate attraction
     const attractionForce = [
-      attraction * vector2client[0] * distance2client,
-      attraction * vector2client[1] * distance2client
+      attraction * vector2client[0] * distance2client * distance2client,
+      attraction * vector2client[1] * distance2client * distance2client
     ]
 
     this.direction = [
@@ -78,20 +84,13 @@ const createParticle = ({
       this.direction[1] + attractionForce[1]
     ]
 
-    // update position
-    this.position = [
-      this.position[0] + this.direction[0],
-      this.position[1] + this.direction[1]
-    ]
-
-    // [
-    //   this.position[0] < 1 && this.position[0] > 0
-    //     ? this.position[0] + this.direction[0]
-    //     : 0.5 - (clientPos[0] - 0.5) * Math.random(),
-    //   this.position[1] < 1 && this.position[1] > 0
-    //     ? this.position[1] + this.direction[1]
-    //     : 0.5 - (clientPos[1] - 0.5) * Math.random()
-    // ]
+    // cap direction
+    const capRate =
+      Math.sqrt(
+        this.direction[0] * this.direction[0] +
+          this.direction[1] * this.direction[1]
+      ) / speed
+    this.direction = [this.direction[0] / capRate, this.direction[1] / capRate]
 
     return { particle: this, lines }
   }
