@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/particle-universe/static/css/main.34de6062.chunk.css",
+    "main.js": "/particle-universe/static/js/main.328f3645.chunk.js",
+    "main.js.map": "/particle-universe/static/js/main.328f3645.chunk.js.map",
+    "runtime~main.js": "/particle-universe/static/js/runtime~main.307d00a2.js",
+    "runtime~main.js.map": "/particle-universe/static/js/runtime~main.307d00a2.js.map",
+    "static/js/2.d23e1248.chunk.js": "/particle-universe/static/js/2.d23e1248.chunk.js",
+    "static/js/2.d23e1248.chunk.js.map": "/particle-universe/static/js/2.d23e1248.chunk.js.map",
+    "index.html": "/particle-universe/index.html",
+    "precache-manifest.f5bc43fadd57e617efab091e2e7000bc.js": "/particle-universe/precache-manifest.f5bc43fadd57e617efab091e2e7000bc.js",
+    "service-worker.js": "/particle-universe/service-worker.js",
+    "static/css/main.34de6062.chunk.css.map": "/particle-universe/static/css/main.34de6062.chunk.css.map"
+  }
+}
