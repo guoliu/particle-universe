@@ -4,7 +4,7 @@ import Canvas from "./Canvas"
 const createParticle = ({
   speed = 0.005,
   repulsion = 0.000005,
-  attraction = 0.002,
+  attraction = 0.0015,
   connectSize = 0.25
 }) => ({
   radius: 0.002,
