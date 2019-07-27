@@ -68,8 +68,12 @@ export default ({ particles, lines, setClientPos }) => {
         ref={canvasRef}
         onClick={e => {
           e.stopPropagation()
-          clear(canvasRef.current)
-          setDarkMode(!darkMode)
+          setDarkMode(darkMode => {
+            if (!darkMode) {
+              clear(canvasRef.current)
+            }
+            return !darkMode
+          })
         }}
       />
     ),
