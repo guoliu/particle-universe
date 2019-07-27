@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/particle-universe/precache-manifest.cabce50114a7c3aed127f9baf1b12c18.js"
+  "/particle-universe/precache-manifest.d5944f767e7362468e94773c8bc95305.js"
 );
 
 self.addEventListener('message', (event) => {
