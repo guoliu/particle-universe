@@ -20,6 +20,10 @@ export default ({ particles, lines, setClientPos }) => {
       })
 
       canvas.addEventListener("touchmove", function(e) {
+        // stop touch event
+        e.stopPropagation()
+        e.preventDefault()
+
         const { clientX, clientY } = e.touches[0]
         setClientPos([clientX / width, clientY / height])
       })
