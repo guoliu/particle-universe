@@ -18,6 +18,18 @@ export default ({ particles, lines, setClientPos }) => {
       canvas.addEventListener("mousemove", function(e) {
         setClientPos([e.clientX / width, e.clientY / height])
       })
+
+      canvas.addEventListener(
+        "touchmove",
+        function(e) {
+          // stop touch event
+          e.stopPropagation()
+          e.preventDefault()
+
+          setClientPos([e.clientX / width, e.clientY / height])
+        },
+        false
+      )
     }
   }, [canvasRef, setClientPos, darkMode])
 
